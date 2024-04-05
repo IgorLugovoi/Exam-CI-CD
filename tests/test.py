@@ -27,4 +27,13 @@ def test_count_word_frequency(sample_words, sample_word_count):
 def test_extract_words(text, expected):
     assert extract_words(text) == expected
 
+# Параметризований тест для функції find_top_words
+@pytest.mark.parametrize("word_count, top_n, expected", [
+    (Counter(['this', 'is', 'a', 'sample', 'text']), 3, [('this', 1), ('is', 1), ('a', 1)]),
+    (Counter(['sample', 'text', 'for', 'testing']), 2, [('sample', 1), ('text', 1)]),
+])
+def test_find_top_words(word_count, top_n, expected):
+    assert find_top_words(word_count, top_n) == expected
+
+
 

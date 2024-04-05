@@ -15,6 +15,12 @@ def count_word_frequency(words):
 def find_top_words(word_count, top_n=10):
     return word_count.most_common(top_n)
 
+def write_top_words_to_file(top_words, output_file):
+    with open(output_file, 'w', encoding='utf-8') as file:
+        for word, count in top_words:
+            file.write(f"{word}-{count}\n")
+
+
 if __name__ == "__main__":
     input_filename = "input.txt"
     output_filename = "output.txt"
@@ -24,3 +30,4 @@ if __name__ == "__main__":
     words = extract_words(text)
     word_count = count_word_frequency(words)
     top_words = find_top_words(word_count, top_n)
+    write_top_words_to_file(top_words, output_filename)

@@ -12,6 +12,8 @@ def extract_words(text):
 def count_word_frequency(words):
     return Counter(words)
 
+def find_top_words(word_count, top_n=10):
+    return word_count.most_common(top_n)
 
 if __name__ == "__main__":
     input_filename = "input.txt"
@@ -21,3 +23,4 @@ if __name__ == "__main__":
     text = read_text_from_file(input_filename)
     words = extract_words(text)
     word_count = count_word_frequency(words)
+    top_words = find_top_words(word_count, top_n)

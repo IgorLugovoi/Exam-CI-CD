@@ -35,5 +35,11 @@ def test_extract_words(text, expected):
 def test_find_top_words(word_count, top_n, expected):
     assert find_top_words(word_count, top_n) == expected
 
+# Тест для функції write_top_words_to_file
+def test_write_top_words_to_file(tmp_path):
+    output_file = tmp_path / "output.txt"
+    top_words = [('this', 1), ('is', 1), ('a', 1)]
+    write_top_words_to_file(top_words, output_file)
 
+    assert output_file.read_text() == "this-1\nis-1\na-1\n"
 

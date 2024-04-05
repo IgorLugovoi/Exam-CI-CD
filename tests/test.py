@@ -19,4 +19,12 @@ def test_count_word_frequency(sample_words, sample_word_count):
     assert count_word_frequency(sample_words) == sample_word_count
 
 
+# Параметризований тест для функції extract_words
+@pytest.mark.parametrize("text, expected", [
+    ("This is a test text.", ['this', 'is', 'a', 'test', 'text']),
+    ("Another example; with punctuation!", ['another', 'example', 'with', 'punctuation']),
+])
+def test_extract_words(text, expected):
+    assert extract_words(text) == expected
+
 
